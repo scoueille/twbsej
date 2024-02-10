@@ -144,6 +144,37 @@ $utilities: map-merge(
   )
 );
 
+
+// Créez des variantes de la classe pour chaque breakpoint
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @if not ($infix == "") {  
+    .fade#{$infix} {
+      @include media-breakpoint-up($breakpoint) {
+        @include transition($transition-fade);
+
+        &:not(.show) {
+          opacity: 0;
+        }
+
+      }
+    }
+    
+    .tab-content#{$infix} {
+      @include media-breakpoint-up($breakpoint) {
+        > .tab-pane {
+          display: none;
+        }
+        > .active {
+          display: block;
+        }
+      }
+    }
+
+  }
+}
+
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
