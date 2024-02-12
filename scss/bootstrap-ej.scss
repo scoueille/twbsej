@@ -29,6 +29,10 @@ $grid-breakpoints: (
   md: 768px
 );
 
+$enable-negative-margins: true;
+
+$btn-close-width: 1.2rem;
+
 $gray-100: #F6F7F8;
 $gray-200: #ECECEC;
 $gray-400: #CCCCCC;
@@ -157,6 +161,91 @@ $utilities: map-merge(
       ( responsive: true ),
     ),
     
+    "overflow": map-merge(
+      map-get($utilities, "overflow"),
+      ( responsive: true ),
+    ),
+    "overflow-y": map-merge(
+      map-get($utilities, "overflow-y"),
+      ( responsive: true ),
+    ),
+    "overflow-x": map-merge(
+      map-get($utilities, "overflow-x"),
+      ( responsive: true ),
+    ),
+    
+    "viewport-height": map-merge(
+      map-get($utilities, "viewport-height"),
+      (responsive: true),
+    ),
+    "height": map-merge(
+      map-get($utilities, "height"),
+      ( responsive: true ),
+    ),
+    "min-viewport-height": map-merge(
+      map-get($utilities, "min-viewport-height"),
+      ( 
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "min-viewport-height"), "values"),
+          (auto: auto),
+        ),
+      ),
+    ),
+    
+    
+    "padding-x": map-merge(
+      map-get($utilities, "padding-x"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "padding-x"), "values"),
+          (2rem: 2rem,
+          4rem: 4rem,
+          5rem: 5rem,
+          6rem: 6rem,
+          7rem: 7rem,
+          8rem: 8rem,
+          9rem: 9rem,
+          10rem: 10rem,
+          12rem: 12rem,
+          
+          ),
+        ),
+      ),
+    ),
+    
+    "padding-y": map-merge(
+      map-get($utilities, "padding-y"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "padding-y"), "values"),
+          (2rem: 2rem,
+          4rem: 4rem,
+          5rem: 5rem,
+          6rem: 6rem,
+          7rem: 7rem,
+          8rem: 8rem,
+          9rem: 9rem,
+          10rem: 10rem,
+          12rem: 12rem,
+          
+          ),
+        ),
+      ),
+    ),
+    
+    "negative-margin-x": map-merge(
+      map-get($utilities, "negative-margin-x"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "negative-margin-x"), "values"),
+          (2rem: 2rem,
+          4rem: 4rem,          
+          ),
+        ),
+      ),
+    ),
+    
     "background-color": map-merge(
       map-get($utilities, "background-color"),
       ( responsive: true ),
@@ -191,7 +280,6 @@ $utilities: map-merge(
         }
       }
     }
-
   }
 }
 
