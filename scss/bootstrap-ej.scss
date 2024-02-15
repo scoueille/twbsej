@@ -39,6 +39,13 @@ $gray-400: #CCCCCC;
 $gray-600: #707070;
 $gray-900: #212121;
 
+$carousel-indicator-width: 1.6rem;
+$carousel-indicator-height: 0.5rem;
+$carousel-indicator-spacer: 0.3rem;
+$carousel-indicator-active-bg: #212121;
+$carousel-indicator-hit-area-height: 3rem;
+
+
 // Required
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
@@ -108,6 +115,10 @@ $zindex-levels: map-merge(
 @import "bootstrap/scss/tooltip";
 @import "bootstrap/scss/popover";
 @import "bootstrap/scss/carousel";
+
+.carousel-indicators {
+    position: unset;
+}
 //@import "bootstrap/scss/spinners";
 @import "bootstrap/scss/offcanvas"; // Requires transitions
 @import "bootstrap/scss/placeholders";
@@ -255,6 +266,16 @@ $utilities: map-merge(
     
     "background-color": map-merge(
       map-get($utilities, "background-color"),
+      ( responsive: true ),
+    ),
+    
+    "color": map-merge(
+      map-get($utilities, "color"),
+      ( responsive: true ),
+    ),
+    
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
       ( responsive: true ),
     ),
   )
