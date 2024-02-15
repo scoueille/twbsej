@@ -57,6 +57,13 @@ $utilities-bg-colors: map-merge(
   )
 );
 
+$zindex-levels: map-merge(
+  $zindex-levels,
+  (
+    10: 10
+  )
+);
+
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
