@@ -31,7 +31,7 @@ $grid-breakpoints: (
 
 $enable-negative-margins: true;
 
-$btn-close-width: 1.2rem;
+$btn-close-width:         1.2rem;
 
 $gray-100: #F6F7F8;
 $gray-200: #ECECEC;
@@ -39,14 +39,21 @@ $gray-400: #CCCCCC;
 $gray-600: #707070;
 $gray-900: #212121;
 
-$carousel-indicator-width: 1.6rem;
-$carousel-indicator-height: 0.5rem;
-$carousel-indicator-spacer: 0.3rem;
-$carousel-indicator-active-bg: #212121;
-$carousel-indicator-hit-area-height: 3rem;
+$carousel-indicator-width:            1.6rem;
+$carousel-indicator-height:           0.5rem;
+$carousel-indicator-spacer:           0.3rem;
+$carousel-indicator-active-bg:        $gray-900;
+$carousel-indicator-hit-area-height:  3rem;
 
+$dt-font-weight:        300;
 
-// Required
+$table-th-font-weight:  normal;
+$table-border-width:    0.5rem;
+$table-border-color:    $gray-100;
+$table-cell-padding-y:  1rem;
+$table-cell-padding-x:  1rem;
+
+  // Required
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
@@ -78,11 +85,36 @@ $zindex-levels: map-merge(
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 
+dd {
+  font-weight: normal;
+}
+
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/tables";
+
+
+.table {
+  --#{$prefix}table-external-border-width: 1.5rem;
+  --#{$prefix}table-cell-padding-y: #{$table-cell-padding-y};
+  --#{$prefix}table-cell-padding-x: #{$table-cell-padding-x};
+  border-width: var(--#{$prefix}table-external-border-width);
+  border-style: solid;
+
+  > :not(caption) > * > * {
+    padding: var(--#{$prefix}table-cell-padding-y) var(--#{$prefix}table-cell-padding-x);
+  }
+
+  td {
+    font-weight: 300;
+  }
+
+  th {
+    background-color: var(--#{$prefix}-table-border-color);
+  }
+}
 
 //@import "bootstrap/scss/forms";
 @import "bootstrap/scss/forms/labels";
@@ -117,6 +149,7 @@ $zindex-levels: map-merge(
 @import "bootstrap/scss/carousel";
 
 .carousel-indicators {
+  @extend .carousel-indicators;
     position: unset;
 }
 //@import "bootstrap/scss/spinners";
