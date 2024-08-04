@@ -39,6 +39,12 @@ $gray-400: #CCCCCC;
 $gray-600: #707070;
 $gray-900: #212121;
 
+$border-radius:               1.5rem;
+$border-radius-sm:            0.5rem;
+$border-radius-lg:            2rem;
+$border-radius-xl:            2.5rem;
+$border-radius-xxl:           3rem;
+
 $carousel-indicator-width:            1.6rem;
 $carousel-indicator-height:           0.5rem;
 $carousel-indicator-spacer:           0.3rem;
@@ -168,23 +174,53 @@ $utilities: map-merge(
   $utilities, (
     "rounded": map-merge(
       map-get($utilities, "rounded"),
-      ( responsive: true ),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "rounded"), "values"),
+          (1rem: 1rem),
+        ),
+      ),
     ),
     "rounded-top": map-merge(
       map-get($utilities, "rounded-top"),
-      ( responsive: true ),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-top"), "values"),
+          (1rem: 1rem),
+        ),
+      ),
     ),
     "rounded-end": map-merge(
       map-get($utilities, "rounded-end"),
-      ( responsive: true ),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-end"), "values"),
+          (1rem: 1rem),
+        ),
+      ),
     ),
     "rounded-bottom": map-merge(
       map-get($utilities, "rounded-bottom"),
-      ( responsive: true ),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-bottom"), "values"),
+          (1rem: 1rem),
+        ),
+      ),
     ),
     "rounded-start": map-merge(
       map-get($utilities, "rounded-start"),
-      ( responsive: true ),
+      (
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-start"), "values"),
+          (1rem: 1rem),
+        ),
+      ),
     ),
     
     "position": map-merge(
