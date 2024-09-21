@@ -9,7 +9,6 @@
 // `$body-color` or write more CSS that override's Bootstrap's CSS like so:
 // `body { color: red; }`.
 
-
 //
 // Bring in Bootstrap
 //
@@ -17,7 +16,6 @@
 // Toggle global options
 //$enable-gradients: true;
 //$enable-shadows: true;
-
 
 // Include functions first
 @import "bootstrap/scss/functions";
@@ -31,7 +29,7 @@ $grid-breakpoints: (
 
 $enable-negative-margins: true;
 
-$btn-close-width:         1.2rem;
+$btn-close-width: 1.2rem;
 
 $gray-100: #F6F7F8;
 $gray-200: #ECECEC;
@@ -39,49 +37,59 @@ $gray-400: #CCCCCC;
 $gray-600: #707070;
 $gray-900: #212121;
 
-$border-radius:               1.5rem;
-$border-radius-sm:            0.5rem;
-$border-radius-lg:            2rem;
-$border-radius-xl:            2.5rem;
-$border-radius-xxl:           3rem;
+$border-radius: 1.5rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: 2rem;
+$border-radius-xl: 2.5rem;
+$border-radius-xxl: 3rem;
 
-$carousel-indicator-width:            1.6rem;
-$carousel-indicator-height:           0.5rem;
-$carousel-indicator-spacer:           0.3rem;
-$carousel-indicator-active-bg:        $gray-900;
-$carousel-indicator-hit-area-height:  3rem;
+$carousel-indicator-width: 1.6rem;
+$carousel-indicator-height: 0.5rem;
+$carousel-indicator-spacer: 0.3rem;
+$carousel-indicator-active-bg: $gray-900;
+$carousel-indicator-hit-area-height: 3rem;
 
-$dt-font-weight:        300;
+$dt-font-weight: 300;
 
-$table-th-font-weight:  normal;
-$table-border-width:    0.5rem;
-$table-border-color:    $gray-100;
-$table-cell-padding-y:  1rem;
-$table-cell-padding-x:  1rem;
+$table-th-font-weight: normal;
+$table-border-width: 0.5rem;
+$table-border-color: $gray-100;
+$table-cell-padding-y: 1rem;
+$table-cell-padding-x: 1rem;
 
-  // Required
+// Required
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
 
 $utilities-border-colors: map-merge(
-  $utilities-border-colors,
-  (
-    "gray": var(--#{$prefix}gray-400)
-  )
+    $utilities-border-colors,
+    (
+      "gray-100": var(--#{$prefix}gray-100),
+      "gray": var(--#{$prefix}gray-400)
+    )
 );
 $utilities-bg-colors: map-merge(
-  $utilities-bg-colors,
-  (
-    "gray": var(--#{$prefix}gray-400)
-  )
+    $utilities-bg-colors,
+    (
+      "gray-100": var(--#{$prefix}gray-100),
+      "gray-200": var(--#{$prefix}gray-200),
+      "gray": var(--#{$prefix}gray-400)
+    )
+);
+$utilities-text-colors: map-merge(
+    $utilities-text-colors,
+    (
+      "gray": var(--#{$prefix}gray-400),
+      "yellow": var(--#{$prefix}yellow)
+    )
 );
 
 $zindex-levels: map-merge(
-  $zindex-levels,
-  (
-    10: 10
-  )
+    $zindex-levels,
+    (
+      10: 10
+    )
 );
 
 @import "bootstrap/scss/mixins";
@@ -156,8 +164,9 @@ dd {
 
 .carousel-indicators {
   @extend .carousel-indicators;
-    position: unset;
+  position: unset;
 }
+
 //@import "bootstrap/scss/spinners";
 @import "bootstrap/scss/offcanvas"; // Requires transitions
 @import "bootstrap/scss/placeholders";
@@ -166,186 +175,193 @@ dd {
 @import "bootstrap/scss/helpers";
 
 $utilities: map-remove(
-    $utilities, 
-    "gap", "row-gap", "column-gap"
-    "link-opacity", "text-opacity");
+    $utilities,
+    "gap", "row-gap", "column-gap" "link-opacity", "text-opacity");
 
 $utilities: map-merge(
-  $utilities, (
+    $utilities, (
     "rounded": map-merge(
-      map-get($utilities, "rounded"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "rounded"), "values"),
-          (1rem: 1rem),
+        map-get($utilities, "rounded"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "rounded"), "values"),
+              (1rem: 1rem),
+          ),
         ),
-      ),
     ),
     "rounded-top": map-merge(
-      map-get($utilities, "rounded-top"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "rounded-top"), "values"),
-          (1rem: 1rem),
+        map-get($utilities, "rounded-top"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "rounded-top"), "values"),
+              (1rem: 1rem),
+          ),
         ),
-      ),
     ),
     "rounded-end": map-merge(
-      map-get($utilities, "rounded-end"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "rounded-end"), "values"),
-          (1rem: 1rem),
+        map-get($utilities, "rounded-end"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "rounded-end"), "values"),
+              (1rem: 1rem),
+          ),
         ),
-      ),
     ),
     "rounded-bottom": map-merge(
-      map-get($utilities, "rounded-bottom"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "rounded-bottom"), "values"),
-          (1rem: 1rem),
+        map-get($utilities, "rounded-bottom"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "rounded-bottom"), "values"),
+              (1rem: 1rem),
+          ),
         ),
-      ),
     ),
     "rounded-start": map-merge(
-      map-get($utilities, "rounded-start"),
-      (
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "rounded-start"), "values"),
-          (1rem: 1rem),
+        map-get($utilities, "rounded-start"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "rounded-start"), "values"),
+              (1rem: 1rem),
+          ),
         ),
-      ),
     ),
-    
     "position": map-merge(
-      map-get($utilities, "position"),
-      ( responsive: true ),
+        map-get($utilities, "position"),
+        (responsive: true),
     ),
     "top": map-merge(
-      map-get($utilities, "top"),
-      ( responsive: true ),
+        map-get($utilities, "top"),
+        (responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "top"), "values"),
+              (auto: auto),
+          ),
+        ),
     ),
     "bottom": map-merge(
-      map-get($utilities, "bottom"),
-      ( responsive: true ),
+        map-get($utilities, "bottom"),
+        (responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "bottom"), "values"),
+              (auto: auto),
+          ),
+        ),
     ),
     "start": map-merge(
-      map-get($utilities, "start"),
-      ( responsive: true ),
+        map-get($utilities, "start"),
+        (responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "start"), "values"),
+              (auto: auto),
+          ),
+        ),
     ),
     "end": map-merge(
-      map-get($utilities, "end"),
-      ( responsive: true ),
+        map-get($utilities, "end"),
+        (responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "end"), "values"),
+              (auto: auto),
+          ),
+        ),
     ),
     "translate-middle": map-merge(
-      map-get($utilities, "translate-middle"),
-      ( responsive: true ),
+        map-get($utilities, "translate-middle"),
+        (responsive: true),
     ),
-    
     "overflow": map-merge(
-      map-get($utilities, "overflow"),
-      ( responsive: true ),
+        map-get($utilities, "overflow"),
+        (responsive: true),
     ),
     "overflow-y": map-merge(
-      map-get($utilities, "overflow-y"),
-      ( responsive: true ),
+        map-get($utilities, "overflow-y"),
+        (responsive: true),
     ),
     "overflow-x": map-merge(
-      map-get($utilities, "overflow-x"),
-      ( responsive: true ),
+        map-get($utilities, "overflow-x"),
+        (responsive: true),
     ),
-    
     "viewport-height": map-merge(
-      map-get($utilities, "viewport-height"),
-      (responsive: true),
+        map-get($utilities, "viewport-height"),
+        (responsive: true),
     ),
     "height": map-merge(
-      map-get($utilities, "height"),
-      ( responsive: true ),
+        map-get($utilities, "height"),
+        (responsive: true),
     ),
     "min-viewport-height": map-merge(
-      map-get($utilities, "min-viewport-height"),
-      ( 
-        responsive: true,
-        values: map-merge(
-          map-get(map-get($utilities, "min-viewport-height"), "values"),
-          (auto: auto),
+        map-get($utilities, "min-viewport-height"),
+        (
+          responsive: true,
+          values: map-merge(
+              map-get(map-get($utilities, "min-viewport-height"), "values"),
+              (auto: auto),
+          ),
         ),
-      ),
     ),
-    
-    
     "padding-x": map-merge(
-      map-get($utilities, "padding-x"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "padding-x"), "values"),
-          (2rem: 2rem,
-          4rem: 4rem,
-          5rem: 5rem,
-          6rem: 6rem,
-          7rem: 7rem,
-          8rem: 8rem,
-          9rem: 9rem,
-          10rem: 10rem,
-          12rem: 12rem,
-          
+        map-get($utilities, "padding-x"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-x"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
           ),
         ),
-      ),
     ),
-    
     "padding-y": map-merge(
-      map-get($utilities, "padding-y"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "padding-y"), "values"),
-          (2rem: 2rem,
-          4rem: 4rem,
-          5rem: 5rem,
-          6rem: 6rem,
-          7rem: 7rem,
-          8rem: 8rem,
-          9rem: 9rem,
-          10rem: 10rem,
-          12rem: 12rem,
-          
+        map-get($utilities, "padding-y"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-y"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
           ),
         ),
-      ),
     ),
-    
     "negative-margin-x": map-merge(
-      map-get($utilities, "negative-margin-x"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "negative-margin-x"), "values"),
-          (2rem: 2rem,
-          4rem: 4rem,          
+        map-get($utilities, "negative-margin-x"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "negative-margin-x"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+              ),
           ),
         ),
-      ),
     ),
-    
     "background-color": map-merge(
-      map-get($utilities, "background-color"),
-      ( responsive: true ),
+        map-get($utilities, "background-color"),
+        (responsive: true),
     ),
-    
     "color": map-merge(
-      map-get($utilities, "color"),
-      ( responsive: true ),
+        map-get($utilities, "color"),
+        (responsive: true),
     ),
-    
     "font-weight": map-merge(
-      map-get($utilities, "font-weight"),
-      ( responsive: true ),
+        map-get($utilities, "font-weight"),
+        (responsive: true),
     ),
   )
 );
@@ -354,8 +370,8 @@ $utilities: map-merge(
 // Créez des variantes de la classe pour chaque breakpoint
 @each $breakpoint in map-keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-  
-  @if not ($infix == "") {  
+
+  @if not ($infix == "") {
     .fade#{$infix} {
       @include media-breakpoint-up($breakpoint) {
         @include transition($transition-fade);
@@ -366,7 +382,7 @@ $utilities: map-merge(
 
       }
     }
-    
+
     .tab-content#{$infix} {
       @include media-breakpoint-up($breakpoint) {
         > .tab-pane {
