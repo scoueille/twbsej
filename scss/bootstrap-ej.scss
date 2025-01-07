@@ -371,22 +371,32 @@ $utilities: map-merge(
         map-get($utilities, "font-weight"),
         (responsive: true),
     ),
-    "display": map-merge(
-        map-get($utilities, "display"),
-        (state: hover),
-    ),
-
   )
 );
 
+
+// Définir les valeurs de display
+$hover-display-values: (
+  inline,
+  inline-block,
+  block,
+  grid,
+  inline-grid,
+  table,
+  table-row,
+  table-cell,
+  flex,
+  inline-flex,
+  none
+);
 
 // Créez des variantes de la classe pour chaque breakpoint
 @each $breakpoint in map-keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
   @if not ($infix == "") {
-    .fade#{$infix} {
-      @include media-breakpoint-up($breakpoint) {
+    @include media-breakpoint-up($breakpoint) {
+      .fade#{$infix} {
         @include transition($transition-fade);
 
         &:not(.show) {
@@ -394,20 +404,45 @@ $utilities: map-merge(
         }
 
       }
-    }
 
-    .tab-content#{$infix} {
-      @include media-breakpoint-up($breakpoint) {
+      .tab-content#{$infix} {
         > .tab-pane {
           display: none;
         }
+
         > .active {
           display: block;
         }
       }
     }
   }
+  @include media-breakpoint-up($breakpoint) {
+    @each $value in $hover-display-values {
+      *:hover > .hover-d#{$infix}-#{$value} {
+        // Classe par défaut (sans responsive)
+        display: $value !important;
+      }
+    }
+  }
 }
+
+//
+//// Générer les classes utilitaires pour `*:hover >`
+//@each $value in $hover-display-values {
+//  // Classe par défaut (sans responsive)
+//  *:hover > .hover-d-#{$value} {
+//    display: $value !important;
+//  }
+//
+//  // Générer les variantes responsives
+//  @each $breakpoint in  map-keys($grid-breakpoints) {
+//    @include media-breakpoint-up($breakpoint) {
+//      *:hover > .hover-d-#{$breakpoint}-#{$value} {
+//        display: $value !important;
+//      }
+//    }
+//  }
+//}
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
