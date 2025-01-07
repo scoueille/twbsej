@@ -371,6 +371,11 @@ $utilities: map-merge(
         map-get($utilities, "font-weight"),
         (responsive: true),
     ),
+    "display": map-merge(
+        map-get($utilities, "display"),
+        (state: hover),
+    ),
+
   )
 );
 
