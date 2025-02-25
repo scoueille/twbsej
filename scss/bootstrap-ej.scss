@@ -336,6 +336,43 @@ $utilities: map-merge(
           ),
         ),
     ),
+    "padding-start": map-merge(
+        map-get($utilities, "padding-start"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-x"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
+          ),
+        ),
+    ),
+
+    "padding-end": map-merge(
+        map-get($utilities, "padding-end"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-x"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
+          ),
+        ),
+    ),
     "padding-y": map-merge(
         map-get($utilities, "padding-y"),
         (
@@ -354,6 +391,43 @@ $utilities: map-merge(
           ),
         ),
     ),
+    "padding-top": map-merge(
+        map-get($utilities, "padding-top"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-y"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
+          ),
+        ),
+    ),
+    "padding-bottom": map-merge(
+        map-get($utilities, "padding-bottom"),
+        (
+          values: map-merge(
+              map-get(map-get($utilities, "padding-y"), "values"),
+              (2rem: 2rem,
+                4rem: 4rem,
+                5rem: 5rem,
+                6rem: 6rem,
+                7rem: 7rem,
+                8rem: 8rem,
+                9rem: 9rem,
+                10rem: 10rem,
+                12rem: 12rem,
+              ),
+          ),
+        ),
+    ),
+
     "negative-margin-x": map-merge(
         map-get($utilities, "negative-margin-x"),
         (
